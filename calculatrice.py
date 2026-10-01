@@ -24,5 +24,7 @@ def racine_carre(a):
 def exponentielle(a):
     return math.exp(a)
 
-def racine_carree (a):
-    return math.sqrt(a)
+def racine_carree (nombre):
+    if nombre < 0:
+        raise ValueError("Le nombre doit être positif ou nul.")
+    return math.sqrt(nombre)
