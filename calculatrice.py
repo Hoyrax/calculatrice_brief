@@ -24,4 +24,5 @@ def racine_carre(a):
 def exponentielle(a):
     return math.exp(a)
 
-
+def racine_carree (a):
+    return math.sqrt(a)
