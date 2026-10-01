@@ -28,7 +28,8 @@ def racine_carree (nombre):
     if nombre < 0:
         raise ValueError("Le nombre doit être positif ou nul.")
     return math.sqrt(nombre)
-def logarithme (valeur, base=none):
+
+def logarithme (valeur, base=None):
     if valeur <= 0:
         raise ValueError("La valeur doit être positive.")
     if base is None:
