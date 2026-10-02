@@ -6,16 +6,16 @@ from soustraction import soustraction
 from division import division
 
 
-
 fenetre = tk.Tk()
 fenetre.title("Calculatrice")
 fenetre.geometry("350x500")
 fenetre.resizable(False, False)
 
 
+# Écran
 ecran = tk.Entry(
     fenetre,
-    font=("Arial", 24),  # correction : font et non front
+    font=("Arial", 24),
     justify="right"
 )
 
@@ -54,29 +54,17 @@ def calculer():
     deuxieme_nombre = float(ecran.get())
 
     if operateur == "+":
-        resultat = addition(
-            premier_nombre,
-            deuxieme_nombre
-        )
+        resultat = addition(premier_nombre, deuxieme_nombre)
 
     elif operateur == "*":
-        resultat = multiplication(
-            premier_nombre,
-            deuxieme_nombre
-        )
+        resultat = multiplication(premier_nombre, deuxieme_nombre)
 
     elif operateur == "-":
-        resultat = soustraction(
-            premier_nombre,
-            deuxieme_nombre
-        )
+        resultat = soustraction(premier_nombre, deuxieme_nombre)
 
     elif operateur == "/":
         try:
-            resultat = division(
-                premier_nombre,
-                deuxieme_nombre
-            )
+            resultat = division(premier_nombre, deuxieme_nombre)
 
         except ValueError as e:
             ecran.delete(0, tk.END)
@@ -90,8 +78,13 @@ def calculer():
     ecran.insert(tk.END, str(resultat))
 
 
+# Cadre des boutons
 cadre = tk.Frame(fenetre)
-cadre.pack()
+cadre.pack(
+    padx=10,
+    fill="both",
+    expand=True
+)
 
 
 boutons = [
@@ -103,48 +96,49 @@ boutons = [
 ]
 
 
+# Permet aux colonnes de s'adapter à la largeur
+for colonne in range(4):
+    cadre.columnconfigure(colonne, weight=1)
+
+
 for texte, ligne, colonne in boutons:
 
     if texte == "=":
-
         bouton = tk.Button(
             cadre,
             text=texte,
-            font=("Arial", 18),  # correction : font et non front
-            width=5,
+            font=("Arial", 18),
+            width=3,
             height=2,
             command=calculer
         )
 
     elif texte == "C":
-
         bouton = tk.Button(
             cadre,
             text=texte,
             font=("Arial", 18),
-            width=5,
+            width=3,
             height=2,
             command=effacer
         )
 
     elif texte in "+-*/":
-
         bouton = tk.Button(
             cadre,
             text=texte,
             font=("Arial", 18),
-            width=5,
+            width=3,
             height=2,
             command=lambda op=texte: choisir_operateur(op)
         )
 
     else:
-
         bouton = tk.Button(
             cadre,
             text=texte,
             font=("Arial", 18),
-            width=5,
+            width=3,
             height=2,
             command=lambda n=texte: ajouter(n)
         )
@@ -153,8 +147,9 @@ for texte, ligne, colonne in boutons:
         row=ligne,
         column=colonne,
         padx=3,
-        pady=3
+        pady=3,
+        sticky="nsew"
     )
 
 
-
+fenetre.mainloop()
