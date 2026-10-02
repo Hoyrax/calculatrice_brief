@@ -216,7 +216,7 @@ def quitter_jeu():
     
     # Rétablissement de l'affichage initial de la calculatrice
     fenetre.title("Calculatrice")
-    fenetre.geometry("380x520")
+    fenetre.geometry("500x500")
     ecran.pack(padx=10, pady=20, fill="x")
     cadre.pack()
 # -------------------------------------
