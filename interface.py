@@ -9,7 +9,6 @@ from division import division
 
 fenetre = tk.Tk()
 fenetre.title("Calculatrice")
-# Changement ici : Ajustement de la taille pour éviter les boutons coupés
 fenetre.geometry("500x500")
 fenetre.resizable(False, False)
 
