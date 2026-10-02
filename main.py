@@ -2,6 +2,8 @@ from addition import addition
 from multiplication import multiplication
 from soustraction import soustraction
 from division import division
+from interface import fenetre
+
 
 def afficher_menu():
     print("=== Calculatrice ===")
@@ -50,5 +52,6 @@ def lancer_calculatrice():
                 print(e)
         else:
             print("Option invalide. Veuillez réessayer.")
+            
 if __name__ == "__main__":
-    lancer_calculatrice()
+    fenetre.mainloop()

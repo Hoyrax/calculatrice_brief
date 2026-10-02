@@ -4,7 +4,7 @@ from addition import addition
 from multiplication import multiplication
 from soustraction import soustraction
 from division import division
-from main import lancer_calculatrice
+
 
 
 fenetre = tk.Tk()
@@ -157,4 +157,4 @@ for texte, ligne, colonne in boutons:
     )
 
 
-fenetre.mainloop()
+
